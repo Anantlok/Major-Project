@@ -15,7 +15,7 @@ const app = express();
 // Enable CORS so your frontend (Vercel) can call the API
 app.use(cors({
   origin: [
-    'https://your-frontend.vercel.app', // 👈 replace with your actual Vercel domain
+    // 👈 replace with your actual Vercel domain
     'http://localhost:5173'             // for local development (Vite)
   ],
   credentials: true
