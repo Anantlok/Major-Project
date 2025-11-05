@@ -1,0 +1,163 @@
+[
+  {
+    "title": "NVIDIA GeForce RTX 4070",
+    "category": "GPU",
+    "productUrl": "https://www.nvidia.com/en-us/geforce/graphics-cards/40-series/rtx-4070/",
+    "imageUrl": "https://placehold.co/60x60/1e1e1e/white?text=GPU",
+    "price": 45499,
+    "model3DUrl": ""
+  },
+  {
+    "title": "NVIDIA GeForce RTX 4080",
+    "category": "GPU",
+    "productUrl": "https://www.nvidia.com/en-us/geforce/graphics-cards/40-series/rtx-4080/",
+    "imageUrl": "https://placehold.co/60x60/1e1e1e/white?text=GPU",
+    "price": 98999,
+    "model3DUrl": ""
+  },
+  {
+    "title": "AMD Ryzen 7 7800X3D",
+    "category": "CPU",
+    "productUrl": "https://www.amd.com/en/products/cpu/amd-ryzen-7-7800x3d",
+    "imageUrl": "https://placehold.co/60x60/1e1e1e/white?text=CPU",
+    "price": 33000,
+    "model3DUrl": ""
+  },
+  {
+    "title": "Intel Core i7-14700K",
+    "category": "CPU",
+    "productUrl": "https://www.intel.com/content/www/us/en/products/processors/core-i7/core-i7-14700k.html",
+    "imageUrl": "https://placehold.co/60x60/1e1e1e/white?text=CPU",
+    "price": 38990,
+    "model3DUrl": ""
+  },
+  {
+    "title": "Intel Core i5-14600K",
+    "category": "CPU",
+    "productUrl": "https://www.intel.com/content/www/us/en/products/processors/core-i5/core-i5-14600k.html",
+    "imageUrl": "https://placehold.co/60x60/1e1e1e/white?text=CPU",
+    "price": 29990,
+    "model3DUrl": ""
+  },
+  {
+    "title": "ASUS TUF Gaming 27\" Monitor",
+    "category": "Monitor",
+    "productUrl": "https://www.asus.com/monitors/",
+    "imageUrl": "https://placehold.co/60x60/1e1e1e/white?text=Monitor",
+    "price": 24999,
+    "model3DUrl": ""
+  },
+  {
+    "title": "LG UltraGear 32\" QHD",
+    "category": "Monitor",
+    "productUrl": "https://www.lg.com/in/monitors",
+    "imageUrl": "https://placehold.co/60x60/1e1e1e/white?text=Monitor",
+    "price": 28990,
+    "model3DUrl": ""
+  },
+  {
+    "title": "Logitech G Pro X Keyboard",
+    "category": "Keyboard",
+    "productUrl": "https://www.logitechg.com/en-us/products/gaming-keyboards.html",
+    "imageUrl": "https://placehold.co/60x60/1e1e1e/white?text=Keyboard",
+    "price": 12499,
+    "model3DUrl": ""
+  },
+  {
+    "title": "Razer BlackWidow V4",
+    "category": "Keyboard",
+    "productUrl": "https://www.razer.com/gaming-keyboards/razer-blackwidow-v4",
+    "imageUrl": "https://placehold.co/60x60/1e1e1e/white?text=Keyboard",
+    "price": 15999,
+    "model3DUrl": ""
+  },
+  {
+    "title": "Logitech G502 HERO Mouse",
+    "category": "Mouse",
+    "productUrl": "https://www.logitechg.com/en-us/products/gaming-mice.html",
+    "imageUrl": "https://placehold.co/60x60/1e1e1e/white?text=Mouse",
+    "price": 6599,
+    "model3DUrl": ""
+  },
+  {
+    "title": "Razer DeathAdder V3 Pro",
+    "category": "Mouse",
+    "productUrl": "https://www.razer.com/gaming-mice/razer-deathadder-v3-pro",
+    "imageUrl": "https://placehold.co/60x60/1e1e1e/white?text=Mouse",
+    "price": 11299,
+    "model3DUrl": ""
+  },
+  {
+    "title": "Samsung 980 Pro 2TB SSD",
+    "category": "Storage",
+    "productUrl": "https://samsung.com/storage",
+    "imageUrl": "https://placehold.co/60x60/1e1e1e/white?text=SSD",
+    "price": 15999,
+    "model3DUrl": ""
+  },
+  {
+    "title": "Kingston FURY Renegade 1TB SSD",
+    "category": "Storage",
+    "productUrl": "https://www.kingston.com/en/ssd/renegade-nvme-m2-ssd",
+    "imageUrl": "https://placehold.co/60x60/1e1e1e/white?text=SSD",
+    "price": 8990,
+    "model3DUrl": ""
+  },
+  {
+    "title": "WD Black SN850X 4TB SSD",
+    "category": "Storage",
+    "productUrl": "https://www.westerndigital.com/en-in/products/internal-ssd/wd-black-sn850x-nvme-ssd",
+    "imageUrl": "https://placehold.co/60x60/1e1e1e/white?text=SSD",
+    "price": 30999,
+    "model3DUrl": ""
+  },
+  {
+    "title": "Corsair Vengeance 32GB (2x16GB) DDR5",
+    "category": "RAM",
+    "productUrl": "https://www.corsair.com/ram",
+    "imageUrl": "https://placehold.co/60x60/1e1e1e/white?text=RAM",
+    "price": 8999,
+    "model3DUrl": ""
+  },
+  {
+    "title": "G.Skill Trident Z5 32GB (2x16GB) DDR5",
+    "category": "RAM",
+    "productUrl": "https://www.gskill.com/product/165/374/1640226315/F5-6000J3636F16GX2-TZ5K",
+    "imageUrl": "https://placehold.co/60x60/1e1e1e/white?text=RAM",
+    "price": 10499,
+    "model3DUrl": ""
+  },
+  {
+    "title": "ASUS ROG STRIX Z790-E",
+    "category": "Motherboard",
+    "productUrl": "https://rog.asus.com/motherboards/rog-strix/rog-strix-z790-e-gaming-wifi-model/",
+    "imageUrl": "https://placehold.co/60x60/1e1e1e/white?text=Mobo",
+    "price": 48990,
+    "model3DUrl": ""
+  },
+  {
+    "title": "Gigabyte B760M AORUS ELITE",
+    "category": "Motherboard",
+    "productUrl": "https://www.gigabyte.com/Motherboard/B760M-AORUS-ELITE-AX-rev-10-11",
+    "imageUrl": "https://placehold.co/60x60/1e1e1e/white?text=Mobo",
+    "price": 17990,
+    "model3DUrl": ""
+  },
+  {
+    "title": "Lian Li PC-O11 Dynamic",
+    "category": "Case",
+    "productUrl": "https://lian-li.com/product/pc-o11-dynamic/",
+    "imageUrl": "https://placehold.co/60x60/1e1e1e/white?text=Case",
+    "price": 13500,
+    "model3DUrl": ""
+  },
+  {
+    "title": "NZXT H7 Flow",
+    "category": "Case",
+    "productUrl": "https://nzxt.com/product/h7-flow",
+    "imageUrl": "https://placehold.co/60x60/1e1e1e/white?text=Case",
+    "price": 10500,
+    "model3DUrl": ""
+  }
+]
+
