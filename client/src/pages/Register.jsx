@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
-import api from '../utils/api'; // Uses the relative path API utility
+import axios from 'axios';
 import { useNavigate, Link } from 'react-router-dom';
-import { FiUser, FiMail, FiLock, FiCpu } from 'react-icons/fi'; // Imports icons
+import { FiUser, FiMail, FiLock, FiCpu } from 'react-icons/fi'; // Import icons
 
 function Register() {
   const [formData, setFormData] = useState({ name: '', email: '', password: '' });
@@ -15,11 +15,9 @@ function Register() {
     e.preventDefault();
     setError('');
     try {
-      // Use 'api.post' with the relative path
-      await api.post('/auth/register', {
+      await axios.post('http://localhost:5000/api/auth/register', {
         name, email, password,
       });
-      // Redirect to login on successful registration
       navigate('/login');
     } catch (err) {
       setError(err.response?.data?.msg || 'Registration failed');

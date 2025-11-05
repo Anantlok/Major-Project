@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
-
-import api from '../utils/api'; // Uses the relative path API utility
+import axios from 'axios';
 import { useNavigate, Link } from 'react-router-dom';
-import { FiMail, FiLock, FiCpu } from 'react-icons/fi'; // Imports icons
+import { FiMail, FiLock, FiCpu } from 'react-icons/fi'; // Import icons
 
 function Login() {
   const [formData, setFormData] = useState({ email: '', password: '' });
@@ -16,11 +15,9 @@ function Login() {
     e.preventDefault();
     setError('');
     try {
-      // Use 'api.post' with the relative path
-      const res = await api.post('/auth/login', {
+      const res = await axios.post('http://localhost:5000/api/auth/login', {
         email, password,
       });
-      // Save both token and role
       localStorage.setItem('token', res.data.token);
       localStorage.setItem('role', res.data.role);
       navigate('/');
