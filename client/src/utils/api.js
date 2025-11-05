@@ -1,26 +1,24 @@
 import axios from 'axios';
 
-// Create a pre-configured instance of axios
+// Detect environment: use local proxy in dev, real backend in production
 const api = axios.create({
-  // Use a relative baseURL
-  // This will be proxied by vite.config.js in development
-  // and handled by vercel.json in production.
-  baseURL: '/api',
+  baseURL:
+    import.meta.env.DEV
+      ? '/api' // Local dev → vite.config proxy
+      : import.meta.env.VITE_API_URL + '/api', // Production → your backend
+  withCredentials: true, // optional if using cookies/sessions
 });
 
-/* This "interceptor" runs before every request.
-  It checks if a token exists in localStorage, 
-  and if it does, it adds it to the request headers.
-*/
-api.interceptors.request.use((config) => {
-  const token = localStorage.getItem('token');
-  if (token) {
-    config.headers['x-auth-token'] = token;
-  }
-  return config;
-}, (error) => {
-  return Promise.reject(error);
-});
+// Add token automatically to every request
+api.interceptors.request.use(
+  (config) => {
+    const token = localStorage.getItem('token');
+    if (token) {
+      config.headers['x-auth-token'] = token;
+    }
+    return config;
+  },
+  (error) => Promise.reject(error)
+);
 
 export default api;
-
