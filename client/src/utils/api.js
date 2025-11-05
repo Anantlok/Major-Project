@@ -2,7 +2,10 @@ import axios from 'axios';
 
 // Create a pre-configured instance of axios
 const api = axios.create({
-  baseURL: 'http://localhost:5000/api', // Our backend's base URL
+  // Use a relative baseURL
+  // This will be proxied by vite.config.js in development
+  // and handled by vercel.json in production.
+  baseURL: '/api',
 });
 
 /* This "interceptor" runs before every request.
@@ -20,3 +23,4 @@ api.interceptors.request.use((config) => {
 });
 
 export default api;
+
