@@ -475,3 +475,10 @@ select {
 .auth-link:hover {
   text-decoration: underline;
 }
+@media (max-width: 768px) {
+  .auth-container {
+    width: 90%;
+    margin: 2rem auto;
+    padding: 1.5rem;
+  }
+}

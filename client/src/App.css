@@ -424,3 +424,68 @@ select {
 ::-webkit-scrollbar-thumb:hover {
   background-color: #555;
 }
+@media (max-width: 1200px) {
+  /* On tablets, switch to 2 columns */
+  .main-content {
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+      "build list"
+      "visualizer visualizer"
+      "admin admin";
+  }
+}
+
+@media (max-width: 768px) {
+  /* On phones, switch to 1 column */
+  .main-content {
+    grid-template-columns: 1fr;
+    padding: 1rem;
+    gap: 1.5rem;
+    /* Re-order for mobile: Build first, then List, then Visualizer */
+    grid-template-areas:
+      "build"
+      "list"
+      "visualizer"
+      "admin";
+  }
+
+  /* Make sections full-width */
+  .build-section,
+  .visualizer-section,
+  .list-section {
+    padding: 1rem;
+    min-height: auto; /* Let content define height */
+  }
+
+  /* Adjust visualizer height for phones */
+  .visualizer-wrapper {
+    min-height: 350px;
+    height: 350px;
+  }
+
+  /* Simplify navbar */
+  .navbar {
+    padding: 1rem;
+  }
+  .navbar h1 {
+    font-size: 1.25rem;
+  }
+
+  /* Stack admin form inputs */
+  .product-form {
+    grid-template-columns: 1fr;
+  }
+
+  /* Adjust filter buttons */
+  .product-list-filter {
+    margin-bottom: 1rem;
+  }
+
+  .product-card {
+    padding: 0.75rem;
+  }
+
+  .product-info h4 {
+    font-size: 0.95rem;
+  }
+}
