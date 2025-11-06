@@ -14,6 +14,13 @@ const UserSchema = new mongoose.Schema({
     type: String,
     required: true,
   },
+    // 🛑 NEW FIELD: Add the role definition
+    role: {
+        type: String,
+        enum: ['user', 'admin'], // Restricts values to 'user' or 'admin'
+        default: 'user' // Every new user starts as a regular user
+    }
+
 });
 
 // ✅ SAFE MODEL CREATION

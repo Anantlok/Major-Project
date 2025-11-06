@@ -1,166 +1,134 @@
-/* ---
-1. Imports & Root Variables (User-Provided)
-2. Base & Typography (User-Provided)
-3. Layout (Dashboard, Navbar, Main Grid)
-4. Reusable Components (Buttons, Forms)
-5. Section: My Build (Left)
-6. Section: Visualizer (Center)
-7. Section: All Parts (Right)
-8. Section: Admin (Bottom)
-9. Auth & Utilities
---- */
-
-/* === 1. IMPORTS & ROOT VARIABLES === */
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
-
+/* ============================= */
+/* === GLOBAL STYLES === */
+/* ============================= */
 :root {
-  --font-family: 'Poppins', sans-serif;
-  --bg-main: #121212;     /* Main background */
-  --bg-card: #1e1e1e;     /* Card/nav background */
-  --bg-nav: #1e1e1e;
-  --bg-input: #2a2a2a;    /* Input/sub-card background */
-  --text-main: #f5f5f5;   /* Soft white */
-  --text-light: #a0a0a0;  /* Grey text */
-  --border-color: #333333; /* Subtle border */
-  --accent: #007bff;
-  --accent-hover: #0056b3;
+  --bg-dark: #0f0f0f;
+  --bg-light: #1a1a1a;
+  --text-light: #f8f9fa;
+  --text-muted: #aaa;
+  --primary: #00ff99;
   --danger: #dc3545;
-  --danger-hover: #c82333;
-  --shadow-sm: 0 2px 4px rgba(0,0,0,0.1);
-  --shadow-md: 0 4px 12px rgba(0,0,0,0.2);
-  --radius-sm: 4px;
-  --radius-md: 8px;
-
-  /* Sizing */
-  --nav-height: 65px;
-  --main-padding: 1.5rem;
+  --danger-hover: #ff4d5e;
+  --border-color: #333;
 }
 
-/* === 2. BASE & TYPOGRAPHY === */
 * {
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 body {
-  font-family: var(--font-family);
-  background-color: var(--bg-main);
-  color: var(--text-main);
-  margin: 0;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  overflow: hidden; /* Prevent body scroll */
+  background-color: var(--bg-dark);
+  color: var(--text-light);
+  font-family: "Poppins", sans-serif;
+  min-height: 100vh;
 }
 
-h1, h2, h3, h4, h5, h6 {
-  margin: 0;
-  font-weight: 600;
-  color: var(--text-main);
-}
-
-/* === 3. LAYOUT === */
-.dashboard-container {
-  display: flex;
-  flex-direction: column;
-  height: 100vh;
-  width: 100vw;
-}
-
+/* ============================= */
+/* === NAVBAR === */
+/* ============================= */
 .navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0 var(--main-padding);
-  height: var(--nav-height);
-  background-color: var(--bg-nav);
+  background-color: var(--bg-light);
+  padding: 1rem 2rem;
   border-bottom: 1px solid var(--border-color);
-  flex-shrink: 0; 
 }
 
-.main-content {
-  flex-grow: 1;
-  display: grid;
-  grid-template-columns: 320px 1fr 380px;
-  grid-template-rows: 1fr auto; 
-  gap: var(--main-padding);
-  padding: var(--main-padding);
-  height: calc(100vh - var(--nav-height));
-}
-
-.build-section,
-.visualizer-section,
-.list-section,
-.admin-section {
-  background-color: var(--bg-card);
-  border: 1px solid var(--border-color);
-  border-radius: var(--radius-md);
-  box-shadow: var(--shadow-sm);
-  display: flex;
-  flex-direction: column;
-  overflow: hidden; 
-}
-
-.section-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1rem;
-  border-bottom: 1px solid var(--border-color);
-  flex-shrink: 0; 
-}
-
-.section-header h2 {
-  font-size: 1.1rem;
+.navbar h1 {
+  font-size: 1.25rem;
+  font-weight: 600;
   display: flex;
   align-items: center;
+  gap: 0.5rem;
 }
 
-.section-header strong {
-  color: var(--accent);
-  font-size: 1.1rem;
-}
-
-/* === 4. REUSABLE COMPONENTS (BUTTONS, FORMS) === */
-
-/* --- Button Library --- */
-.btn {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  padding: 10px 16px;
-  border-radius: var(--radius-sm);
-  border: none;
-  cursor: pointer;
-  font-weight: 500; /* Poppins 500 is good for buttons */
-  font-size: 0.9rem;
-  font-family: var(--font-family);
-  transition: all 0.2s ease;
-  text-decoration: none;
-  white-space: nowrap;
-}
-
-.btn-primary {
-  background-color: var(--accent);
-  color: #ffffff;
-}
-.btn-primary:hover {
-  background-color: var(--accent-hover);
-}
-
-.btn-danger {
+.logout-btn {
   background-color: var(--danger);
-  color: #fff;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.3s;
 }
-.btn-danger:hover {
+
+.logout-btn:hover {
   background-color: var(--danger-hover);
 }
 
+/* ============================= */
+/* === MAIN CONTENT === */
+/* ============================= */
+.main-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 1.5rem;
+  padding: 2rem;
+}
+
+section {
+  background-color: var(--bg-light);
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  padding: 1rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* ============================= */
+/* === INDIVIDUAL SECTIONS === */
+/* ============================= */
+.build-section,
+.list-section,
+.visualizer-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.build-section {
+  min-height: 400px;
+}
+
+.product-list {
+  margin-top: 1rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+  gap: 0.75rem;
+  overflow-y: auto;
+  max-height: 450px;
+}
+
+.product-card {
+  background-color: var(--bg-dark);
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  text-align: center;
+  padding: 0.5rem;
+  cursor: pointer;
+  transition: transform 0.2s, border-color 0.2s;
+}
+
+.product-card:hover {
+  transform: translateY(-3px);
+  border-color: var(--primary);
+}
+
+/* ============================= */
+/* === BUTTONS === */
+/* ============================= */
 .btn-outline {
   background-color: transparent;
   border: 1px solid var(--border-color);
   color: var(--text-light);
-  padding: 8px; 
+  padding: 0.4rem 0.75rem;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: all 0.3s;
 }
+
 .btn-outline:hover {
   border-color: var(--danger);
   color: var(--danger);
@@ -170,322 +138,68 @@ h1, h2, h3, h4, h5, h6 {
 .btn-link {
   font-size: 0.8rem;
   color: var(--text-light);
-  display: inline-flex;
-  align-items: center;
-  text-decoration: none;
-}
-.btn-link:hover {
-  color: var(--accent);
-  text-decoration: underline;
-}
-
-/* --- Form Elements --- */
-input[type="text"],
-input[type="number"],
-input[type="url"],
-select {
-  display: block;
-  width: 100%;
-  padding: 10px 12px;
-  border-radius: var(--radius-sm);
-  border: 1px solid var(--border-color);
-  background-color: var(--bg-input); /* Use new var */
-  color: var(--text-main);
-  font-family: var(--font-family);
-  font-size: 0.9rem; /* Match Poppins style */
-  transition: all 0.2s ease-in-out;
-}
-
-input:focus,
-select:focus {
-  outline: none;
-  border-color: var(--accent);
-  box-shadow: 0 0 0 2px rgba(0,123,255,0.2);
-}
-
-select {
-  appearance: none;
-  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23a0a0a0' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
-  background-repeat: no-repeat;
-  background-position: right 12px center;
-  background-size: 16px;
-}
-
-/* === 5. SECTION: MY BUILD (LEFT) === */
-.my-build-list {
-  flex-grow: 1; 
-  overflow-y: auto; 
-  padding: 1rem;
-}
-
-.my-build-list > p { 
-  color: var(--text-light);
-  padding: 1rem;
-  text-align: center;
-  font-style: italic;
-  font-weight: 300;
-}
-
-.build-item-card {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 12px;
-  background-color: var(--bg-input); /* Use input bg for contrast */
-  border: 1px solid var(--border-color);
-  border-radius: var(--radius-sm);
-  margin-bottom: 10px;
-}
-
-.build-item-info {
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-}
-.build-item-info span {
-  font-size: 0.9rem;
-}
-.build-item-info strong {
-  font-size: 0.9rem;
-  color: var(--accent);
-}
-
-/* === 6. SECTION: VISUALIZER (CENTER) === */
-.visualizer-section {
-  padding: 0;
-  border: none;
-  background: transparent;
-  box-shadow: none;
-}
-
-.visualizer-section .section-header {
-  background-color: var(--bg-card);
-  border: 1px solid var(--border-color);
-  border-bottom: none; 
-  border-top-left-radius: var(--radius-md);
-  border-top-right-radius: var(--radius-md);
-  box-shadow: var(--shadow-sm);
-}
-
-.visualizer-wrapper {
-  flex-grow: 1;
-  border-radius: var(--radius-md);
-  border-top-left-radius: 0;
-  border-top-right-radius: 0;
-  overflow: hidden; 
-  border: 1px solid var(--border-color);
-  background-color: var(--bg-card);
-  box-shadow: var(--shadow-sm);
-}
-
-.visualizer-wrapper canvas {
-  display: block;
-  width: 100% !important;
-  height: 100% !important;
-}
-
-/* === 7. SECTION: ALL PARTS (RIGHT) === */
-
-/* --- Filter Buttons --- */
-.product-list-filter {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  padding: 1rem;
-  border-bottom: 1px solid var(--border-color);
-}
-
-.filter-btn {
-  background: transparent;
-  border: 1px solid var(--border-color);
-  color: var(--text-light);
-  padding: 6px 12px;
-  border-radius: 20px; 
   cursor: pointer;
-  font-size: 0.8rem;
-  font-weight: 500;
-  transition: all 0.2s ease;
+  text-decoration: underline;
+  background: none;
+  border: none;
 }
 
-.filter-btn:hover {
-  border-color: var(--accent);
-  color: var(--accent);
-}
+/* ============================= */
+/* === RESPONSIVE DESIGN === */
+/* ============================= */
 
-.filter-btn.active {
-  background-color: var(--accent);
-  color: #ffffff;
-  border-color: var(--accent);
-  font-weight: 600;
-}
-
-/* --- Product List --- */
-.product-list {
-  flex-grow: 1;
-  overflow-y: auto;
-  padding: 1rem;
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-}
-
-.product-card {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  padding: 12px;
-  background-color: var(--bg-input); /* Match build items */
-  border: 1px solid var(--border-color);
-  border-radius: var(--radius-sm);
-  transition: border-color 0.2s ease;
-}
-
-.product-card:hover {
-  border-color: var(--accent);
-}
-
-.product-image {
-  width: 60px;
-  height: 60px;
-  object-fit: cover;
-  border-radius: var(--radius-sm);
-  border: 1px solid var(--border-color);
-  flex-shrink: 0;
-}
-
-.product-info {
-  flex-grow: 1;
-  min-width: 0; 
-}
-
-.product-info h4 {
-  font-size: 0.9rem;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  font-weight: 500;
-}
-
-.product-price {
-  color: var(--accent);
-  font-weight: 600;
-  font-size: 0.9rem;
-  margin: 4px 0;
-}
-
-.product-card .btn-primary {
-  padding: 8px;
-  flex-shrink: 0;
-}
-
-/* === 8. SECTION: ADMIN (BOTTOM) === */
-.admin-section {
-  grid-column: 1 / -1; 
-  overflow: visible; 
-}
-
-.product-form {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 1rem;
-  padding: 1rem;
-}
-
-.product-form .btn {
-  grid-column: 1 / -1;
-  justify-self: start; 
-}
-
-/* === 9. AUTH & UTILITIES === */
-
-/* --- Auth Container (User-Provided) --- */
-.auth-container {
-  max-width: 400px;
-  margin: 4rem auto;
-  padding: 2rem;
-  background-color: var(--bg-card);
-  border-radius: var(--radius-md);
-  box-shadow: var(--shadow-md);
-}
-
-/* --- Custom Scrollbars --- */
-::-webkit-scrollbar {
-  width: 10px;
-  height: 10px;
-}
-::-webkit-scrollbar-track {
-  background: var(--bg-main);
-}
-::-webkit-scrollbar-thumb {
-  background-color: var(--border-color);
-  border-radius: 20px;
-  border: 2px solid var(--bg-main); /* Gutter */
-}
-::-webkit-scrollbar-thumb:hover {
-  background-color: #555;
-}
-@media (max-width: 1200px) {
-  /* On tablets, switch to 2 columns */
+/* --- Tablet (medium) --- */
+@media (max-width: 1024px) {
   .main-content {
     grid-template-columns: 1fr 1fr;
-    grid-template-areas:
-      "build list"
-      "visualizer visualizer"
-      "admin admin";
   }
 }
 
-@media (max-width: 768px) {
-  /* On phones, switch to 1 column */
+/* --- Mobile (full vertical stack) --- */
+@media (max-width: 767px) {
   .main-content {
-    grid-template-columns: 1fr;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 1rem;
     padding: 1rem;
-    gap: 1.5rem;
-    /* Re-order for mobile: Build first, then List, then Visualizer */
-    grid-template-areas:
-      "build"
-      "list"
-      "visualizer"
-      "admin";
   }
 
-  /* Make sections full-width */
   .build-section,
+  .list-section,
   .visualizer-section,
+  .admin-section {
+    width: 100%;
+    margin: 0;
+  }
+
+  .build-section,
   .list-section {
-    padding: 1rem;
-    min-height: auto; /* Let content define height */
+    min-height: auto;
   }
 
-  /* Adjust visualizer height for phones */
-  .visualizer-wrapper {
-    min-height: 350px;
-    height: 350px;
+  .product-list {
+    max-height: 350px;
+    overflow-y: auto;
   }
 
-  /* Simplify navbar */
   .navbar {
-    padding: 1rem;
-  }
-  .navbar h1 {
-    font-size: 1.25rem;
-  }
-
-  /* Stack admin form inputs */
-  .product-form {
-    grid-template-columns: 1fr;
-  }
-
-  /* Adjust filter buttons */
-  .product-list-filter {
-    margin-bottom: 1rem;
-  }
-
-  .product-card {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.5rem;
     padding: 0.75rem;
   }
 
-  .product-info h4 {
-    font-size: 0.95rem;
+  .navbar h1 {
+    text-align: center;
+    width: 100%;
+    font-size: 1.25rem;
+  }
+
+  .logout-btn {
+    align-self: center;
+  }
+
+  body {
+    overflow-y: auto;
   }
 }

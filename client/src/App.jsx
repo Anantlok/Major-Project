@@ -3,9 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import api from './utils/api';
 import PCVisualizer from './components/PCVisualizer';
 import './App.css';
-import {
-  FiLogOut, FiPlus, FiTrash2, FiExternalLink, FiCpu, FiGrid
-} from 'react-icons/fi';
+import { FiLogOut, FiPlus, FiTrash2, FiExternalLink, FiCpu, FiGrid } from 'react-icons/fi';
 
 // --- CATEGORY LIST ---
 const CATEGORIES = [
@@ -19,14 +17,12 @@ function App() {
   const [myBuild, setMyBuild] = useState({ products: [] });
   const [userRole, setUserRole] = useState(localStorage.getItem('role'));
   const [error, setError] = useState('');
-  
-  // --- NEW STATE FOR FILTER ---
   const [activeFilter, setActiveFilter] = useState('All');
 
   // --- ADMIN FORM STATE ---
   const [adminFormData, setAdminFormData] = useState({
     title: '', productUrl: '', imageUrl: '', price: '', model3DUrl: '',
-    category: 'Other', // Add category to admin form
+    category: 'Other',
   });
 
   const navigate = useNavigate();
@@ -49,16 +45,20 @@ function App() {
     try {
       const res = await api.post(`/build/add/${productId}`);
       setMyBuild(res.data);
-    } catch (err) { console.error('Error adding to build', err); }
+    } catch (err) {
+      console.error('Error adding to build', err);
+    }
   };
 
   const removeFromBuild = async (productId) => {
     try {
       const res = await api.delete(`/build/remove/${productId}`);
       setMyBuild(res.data);
-    } catch (err) { console.error('Error removing from build', err); }
+    } catch (err) {
+      console.error('Error removing from build', err);
+    }
   };
-  
+
   const onAdminFormChange = (e) =>
     setAdminFormData({ ...adminFormData, [e.target.name]: e.target.value });
 
@@ -71,13 +71,13 @@ function App() {
       setAdminFormData({
         title: '', productUrl: '', imageUrl: '', price: '', model3DUrl: '', category: 'Other'
       });
-    } catch (err) { setError(err.response?.data?.msg || 'Failed to add product'); }
+    } catch (err) {
+      setError(err.response?.data?.msg || 'Failed to add product');
+    }
   };
 
-  // --- CALCULATIONS ---
   const totalPrice = myBuild.products.reduce((sum, product) => sum + (product.price || 0), 0);
 
-  // --- NEW FILTER LOGIC ---
   const filteredProducts = allProducts.filter(product => {
     if (activeFilter === 'All') return true;
     return product.category === activeFilter;
@@ -97,7 +97,6 @@ function App() {
       </nav>
 
       <div className="main-content">
-        
         {/* --- LEFT COLUMN: MY BUILD --- */}
         <div className="build-section">
           <div className="section-header">
@@ -122,7 +121,7 @@ function App() {
             )}
           </div>
         </div>
-        
+
         {/* --- CENTER COLUMN: VISUALIZER --- */}
         <div className="visualizer-section">
           <div className="section-header">
@@ -138,8 +137,7 @@ function App() {
           <div className="section-header">
             <h2>All Parts</h2>
           </div>
-          
-          {/* --- NEW FILTER BUTTONS --- */}
+
           <div className="product-list-filter">
             {FILTER_CATEGORIES.map(category => (
               <button
@@ -151,9 +149,9 @@ function App() {
               </button>
             ))}
           </div>
-          
+
           <div className="product-list">
-            {filteredProducts.map((product) => (
+            {filteredProducts.map(product => (
               <div key={product._id} className="product-card">
                 <img src={product.imageUrl} alt={product.title} className="product-image" />
                 <div className="product-info">
@@ -183,14 +181,11 @@ function App() {
               <input name="imageUrl" value={adminFormData.imageUrl} onChange={onAdminFormChange} placeholder="Image URL" required />
               <input name="price" value={adminFormData.price} onChange={onAdminFormChange} placeholder="Price" type="number" required />
               <input name="model3DUrl" value={adminFormData.model3DUrl} onChange={onAdminFormChange} placeholder="3D Model URL" />
-              
-              {/* --- NEW CATEGORY DROPDOWN --- */}
               <select name="category" value={adminFormData.category} onChange={onAdminFormChange} required>
                 {CATEGORIES.map(cat => (
                   <option key={cat} value={cat}>{cat}</option>
                 ))}
               </select>
-              
               <button type="submit" className="btn btn-primary" style={{ gridColumn: '1 / -1' }}>
                 <FiPlus />
                 <span>Add Product</span>
@@ -199,7 +194,6 @@ function App() {
             </form>
           </div>
         )}
-
       </div>
     </div>
   );
