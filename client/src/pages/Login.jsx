@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { FiMail, FiLock, FiCpu } from 'react-icons/fi';
 // 🛑 IMPORT THE CENTRALIZED API CLIENT INSTEAD OF AXIOS
-import api from '../utils/api.js'; 
+import api from '../utils/api'; 
 
 function Login() {
   const [formData, setFormData] = useState({ email: '', password: '' });
