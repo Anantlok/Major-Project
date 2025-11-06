@@ -16,7 +16,7 @@ const app = express();
 app.use(cors({
   origin: [
     // 🛑 REPLACE THE PLACEHOLDER WITH YOUR VERCEL DOMAIN
-    'https://custompcmaker.vercel.app/', // Your Vercel Production URL
+    'https://custompcmaker.vercel.app', // Your Vercel Production URL
     
     // For local development (Vite)
     'http://localhost:5173'             
