@@ -1,205 +1,166 @@
-/* ============================= */
-/* === GLOBAL STYLES === */
-/* ============================= */
+/* === BASE STYLES === */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+
 :root {
-  --bg-dark: #0f0f0f;
-  --bg-light: #1a1a1a;
-  --text-light: #f8f9fa;
-  --text-muted: #aaa;
-  --primary: #00ff99;
-  --danger: #dc3545;
-  --danger-hover: #ff4d5e;
+  --bg-main: #121212;
+  --bg-card: #1e1e1e;
+  --bg-nav: #1e1e1e;
+  --text-main: #f5f5f5;
   --border-color: #333;
+  --accent: #007bff;
+  --danger: #dc3545;
+  --danger-hover: #c82333;
+  --radius-md: 8px;
 }
 
+/* RESET */
 * {
-  box-sizing: border-box;
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
 }
 
 body {
-  background-color: var(--bg-dark);
-  color: var(--text-light);
-  font-family: "Poppins", sans-serif;
-  min-height: 100vh;
+  background: var(--bg-main);
+  color: var(--text-main);
+  font-family: 'Poppins', sans-serif;
+  overflow-x: hidden;
 }
 
-/* ============================= */
 /* === NAVBAR === */
-/* ============================= */
 .navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: var(--bg-light);
-  padding: 1rem 2rem;
+  background: var(--bg-nav);
+  padding: 0.75rem 1.5rem;
   border-bottom: 1px solid var(--border-color);
+  position: sticky;
+  top: 0;
+  z-index: 100;
 }
 
 .navbar h1 {
-  font-size: 1.25rem;
-  font-weight: 600;
   display: flex;
   align-items: center;
-  gap: 0.5rem;
+  gap: 8px;
+  font-size: 1.4rem;
+  color: var(--text-main);
 }
 
-.logout-btn {
-  background-color: var(--danger);
+.btn-danger {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  background: var(--danger);
   color: white;
   border: none;
-  padding: 0.5rem 1rem;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: background 0.3s;
-}
-
-.logout-btn:hover {
-  background-color: var(--danger-hover);
-}
-
-/* ============================= */
-/* === MAIN CONTENT === */
-/* ============================= */
-.main-content {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  gap: 1.5rem;
-  padding: 2rem;
-}
-
-section {
-  background-color: var(--bg-light);
-  border: 1px solid var(--border-color);
-  border-radius: 12px;
-  padding: 1rem;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
-}
-
-/* ============================= */
-/* === INDIVIDUAL SECTIONS === */
-/* ============================= */
-.build-section,
-.list-section,
-.visualizer-section {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-}
-
-.build-section {
-  min-height: 400px;
-}
-
-.product-list {
-  margin-top: 1rem;
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
-  gap: 0.75rem;
-  overflow-y: auto;
-  max-height: 450px;
-}
-
-.product-card {
-  background-color: var(--bg-dark);
-  border: 1px solid var(--border-color);
-  border-radius: 8px;
-  text-align: center;
-  padding: 0.5rem;
-  cursor: pointer;
-  transition: transform 0.2s, border-color 0.2s;
-}
-
-.product-card:hover {
-  transform: translateY(-3px);
-  border-color: var(--primary);
-}
-
-/* ============================= */
-/* === BUTTONS === */
-/* ============================= */
-.btn-outline {
-  background-color: transparent;
-  border: 1px solid var(--border-color);
-  color: var(--text-light);
-  padding: 0.4rem 0.75rem;
+  padding: 8px 14px;
   border-radius: 6px;
   cursor: pointer;
-  transition: all 0.3s;
+  transition: background 0.2s ease;
 }
 
-.btn-outline:hover {
-  border-color: var(--danger);
-  color: var(--danger);
-  background-color: rgba(220, 53, 69, 0.1);
+.btn-danger:hover {
+  background: var(--danger-hover);
 }
 
-.btn-link {
-  font-size: 0.8rem;
-  color: var(--text-light);
-  cursor: pointer;
-  text-decoration: underline;
-  background: none;
-  border: none;
+/* === MAIN DASHBOARD LAYOUT (DESKTOP) === */
+.dashboard-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
 
-/* ============================= */
-/* === RESPONSIVE DESIGN === */
-/* ============================= */
-
-/* --- Tablet (medium) --- */
-@media (max-width: 1024px) {
-  .main-content {
-    grid-template-columns: 1fr 1fr;
-  }
+.main-content {
+  display: grid;
+  grid-template-columns: 1.3fr 2.4fr 1.3fr;
+  grid-template-areas:
+    "build visualizer list"
+    "admin admin admin";
+  gap: 1.5rem;
+  padding: 1.5rem;
+  height: calc(100vh - 70px);
+  overflow: hidden;
 }
 
-/* --- Mobile (full vertical stack) --- */
-@media (max-width: 767px) {
+.build-section { grid-area: build; }
+.visualizer-section { grid-area: visualizer; }
+.list-section { grid-area: list; }
+.admin-section { grid-area: admin; }
+
+.build-section,
+.visualizer-section,
+.list-section,
+.admin-section {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+/* === INTERNAL SCROLL === */
+.build-section > div,
+.visualizer-section > div,
+.list-section > div,
+.admin-section > div {
+  overflow-y: auto;
+  flex-grow: 1;
+}
+
+/* === MOBILE RESPONSIVE STACK === */
+@media (max-width: 768px) {
+  /* 💥 completely override grid with flex layout */
   .main-content {
     display: flex !important;
     flex-direction: column !important;
-    gap: 1rem;
-    padding: 1rem;
+    gap: 1rem !important;
+    height: auto !important;
+    padding: 1rem !important;
+    overflow-y: auto !important;
+    overflow-x: hidden !important;
   }
 
+  /* each section stacked full width */
   .build-section,
-  .list-section,
   .visualizer-section,
+  .list-section,
   .admin-section {
-    width: 100%;
-    margin: 0;
+    width: 100% !important;
+    max-height: 85vh !important;
+    overflow-y: auto !important;
+    flex: 0 0 auto !important;
   }
 
-  .build-section,
-  .list-section {
-    min-height: auto;
-  }
-
-  .product-list {
-    max-height: 350px;
-    overflow-y: auto;
-  }
-
+  /* Navbar adjustments */
   .navbar {
-    flex-direction: column;
-    align-items: stretch;
-    gap: 0.5rem;
-    padding: 0.75rem;
+    flex-wrap: nowrap;
+    padding: 0.6rem 1rem;
   }
 
   .navbar h1 {
-    text-align: center;
-    width: 100%;
-    font-size: 1.25rem;
+    font-size: 1.1rem;
   }
 
-  .logout-btn {
-    align-self: center;
+  /* Smaller logout button on mobile */
+  .btn-danger {
+    padding: 6px 8px;
+    font-size: 0.8rem;
   }
 
-  body {
-    overflow-y: auto;
+  .btn-danger span {
+    display: none;
   }
+
+  .btn-danger svg {
+    font-size: 1.2rem;
+  }
+}
+
+/* === SAFETY === */
+html, body {
+  overflow-x: hidden;
 }

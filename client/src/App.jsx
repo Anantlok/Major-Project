@@ -94,6 +94,7 @@ function App() {
           <FiLogOut />
           <span>Logout</span>
         </button>
+
       </nav>
 
       <div className="main-content">
