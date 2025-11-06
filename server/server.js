@@ -14,13 +14,15 @@ const app = express();
 // --- Middlewares ---
 // Enable CORS so your frontend (Vercel) can call the API
 app.use(cors({
-  origin: [
-    // 👈 replace with your actual Vercel domain
-    'http://localhost:5173'             // for local development (Vite)
-  ],
-  credentials: true
+  origin: [
+    // 🛑 REPLACE THE PLACEHOLDER WITH YOUR VERCEL DOMAIN
+    'https://major-project-wheat-eight.vercel.app', // Your Vercel Production URL
+    
+    // For local development (Vite)
+    'http://localhost:5173'             
+  ],
+  credentials: true
 }));
-
 // Parse JSON bodies
 app.use(express.json());
 

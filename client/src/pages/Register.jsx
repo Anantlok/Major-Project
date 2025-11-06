@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import axios from 'axios';
+// 🛑 IMPORT THE CENTRALIZED API CLIENT INSTEAD OF AXIOS
+import api from './utils/api'; 
 import { useNavigate, Link } from 'react-router-dom';
 import { FiUser, FiMail, FiLock, FiCpu } from 'react-icons/fi'; // Import icons
 
@@ -15,9 +16,12 @@ function Register() {
     e.preventDefault();
     setError('');
     try {
-      await axios.post('http://localhost:5000/api/auth/register', {
+      // 🛑 USE 'api.post' with the relative path. 
+      // The dynamic URL (Render URL) is handled in api.js.
+      await api.post('/auth/register', {
         name, email, password,
       });
+      // Optionally show a success message before navigating
       navigate('/login');
     } catch (err) {
       setError(err.response?.data?.msg || 'Registration failed');

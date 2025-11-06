@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
-import axios from 'axios';
 import { useNavigate, Link } from 'react-router-dom';
-import { FiMail, FiLock, FiCpu } from 'react-icons/fi'; // Import icons
+import { FiMail, FiLock, FiCpu } from 'react-icons/fi';
+// 🛑 IMPORT THE CENTRALIZED API CLIENT INSTEAD OF AXIOS
+import api from './utils/api'; 
 
 function Login() {
   const [formData, setFormData] = useState({ email: '', password: '' });
@@ -15,7 +16,9 @@ function Login() {
     e.preventDefault();
     setError('');
     try {
-      const res = await axios.post('http://localhost:5000/api/auth/login', {
+      // 🛑 USE 'api.post' with the relative path. 
+      // The baseURL logic (Render URL) is now handled in api.js.
+      const res = await api.post('/auth/login', {
         email, password,
       });
       localStorage.setItem('token', res.data.token);
