@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 // 🛑 IMPORT THE CENTRALIZED API CLIENT INSTEAD OF AXIOS
-import api from './utils/api'; 
+import api from './src/utils/api.jsx'; 
 import { useNavigate, Link } from 'react-router-dom';
 import { FiUser, FiMail, FiLock, FiCpu } from 'react-icons/fi'; // Import icons
 
